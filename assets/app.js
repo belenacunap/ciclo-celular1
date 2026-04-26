@@ -274,8 +274,66 @@ function exportCsv() {
 
 function speak(txt) { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(txt); u.lang = 'es-CL'; speechSynthesis.speak(u); }
 
+
+const simPhaseData = {
+  interfase: {
+    title: 'Interfase',
+    description: 'La célula crece, cumple sus funciones normales y duplica su ADN durante la fase S. Aún no se observan cromosomas condensados.',
+    keypoint: 'Idea clave: antes de dividirse, la célula debe copiar su material genético y preparar organelos y proteínas.'
+  },
+  profase: {
+    title: 'Profase',
+    description: 'La cromatina se condensa en cromosomas visibles, la envoltura nuclear comienza a desorganizarse y se forma el huso mitótico.',
+    keypoint: 'Idea clave: el ADN se empaqueta para poder moverse de manera ordenada.'
+  },
+  metafase: {
+    title: 'Metafase',
+    description: 'Los cromosomas se alinean en el centro de la célula. Las fibras del huso se unen a los cromosomas para organizar su separación.',
+    keypoint: 'Idea clave: la alineación central ayuda a repartir el ADN de forma equilibrada.'
+  },
+  anafase: {
+    title: 'Anafase',
+    description: 'Las cromátidas hermanas se separan y migran hacia polos opuestos de la célula mediante el acortamiento de las fibras del huso.',
+    keypoint: 'Idea clave: cada futura célula hija recibe una copia equivalente de la información genética.'
+  },
+  telofase: {
+    title: 'Telofase',
+    description: 'Los cromosomas llegan a los polos, comienzan a descondensarse y se reorganizan dos envolturas nucleares.',
+    keypoint: 'Idea clave: se forman dos núcleos nuevos antes de separar completamente la célula.'
+  },
+  citocinesis: {
+    title: 'Citocinesis',
+    description: 'El citoplasma se divide. En células animales aparece un surco de segmentación y se forman dos células hijas.',
+    keypoint: 'Idea clave: la mitosis divide el núcleo; la citocinesis separa físicamente la célula.'
+  }
+};
+
+function setSimulatorPhase(phase) {
+  const data = simPhaseData[phase] || simPhaseData.interfase;
+  const canvas = $('#miniSimCanvas');
+  if (!canvas) return;
+  canvas.dataset.phase = phase;
+  const title = $('#simTitle');
+  const desc = $('#simDescription');
+  const key = $('#simKeypoint');
+  if (title) title.textContent = data.title;
+  if (desc) desc.textContent = data.description;
+  if (key) key.textContent = data.keypoint;
+  $$('.sim-tab').forEach(btn => btn.classList.toggle('active', btn.dataset.simphase === phase));
+}
+
+function attachSimulator() {
+  $$('.sim-tab').forEach(btn => btn.onclick = () => setSimulatorPhase(btn.dataset.simphase));
+  const narrate = $('#simNarrate');
+  if (narrate) narrate.onclick = () => {
+    const phase = $('#miniSimCanvas')?.dataset.phase || 'interfase';
+    const data = simPhaseData[phase] || simPhaseData.interfase;
+    speak(`${data.title}. ${data.description} ${data.keypoint}`);
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  renderQuiz(); loadStudent(); refreshPanel(); setTeacherUi(); attachInlineLogin();
+  renderQuiz(); loadStudent(); refreshPanel(); setTeacherUi(); attachInlineLogin(); attachSimulator();
   const panelLogin = $('#teacherLoginPanel');
   if (panelLogin) panelLogin.onclick = () => attemptTeacherLogin('#teacherEmailPanel', '#teacherPassPanel');
   const logoutBtn = $('#teacherLogout');

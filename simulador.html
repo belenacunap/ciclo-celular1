@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador de fases | Ciclo Celular 2° Medio</title>
+  <meta name="description" content="Simulador visual de fases del ciclo celular para 2° medio: interfase, profase, metafase, anafase, telofase y citocinesis." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-theme="dark" class="viewer-page">
+  <main class="viewer-shell">
+    <section class="viewer-hero">
+      <a class="btn soft" href="index.html">← Volver a la clase</a>
+      <span class="badge" style="margin-left:.6rem">🧪 Laboratorio visual</span>
+      <h1 style="font-size:clamp(2.1rem,5vw,4.8rem);line-height:1;margin:.8rem 0;background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;color:transparent">Simulador de fases del ciclo celular</h1>
+      <p style="max-width:860px;color:var(--muted)">Selecciona cada fase para observar una representación animada de lo que ocurre con el ADN, cromosomas, núcleo, huso mitótico y separación celular.</p>
+    </section>
+
+    <section class="panel simulator-panel">
+      <div class="phase-simulator">
+        <div class="sim-controls" role="tablist" aria-label="Fases del ciclo celular">
+          <button class="sim-tab active" data-simphase="interfase" type="button">Interfase</button>
+          <button class="sim-tab" data-simphase="profase" type="button">Profase</button>
+          <button class="sim-tab" data-simphase="metafase" type="button">Metafase</button>
+          <button class="sim-tab" data-simphase="anafase" type="button">Anafase</button>
+          <button class="sim-tab" data-simphase="telofase" type="button">Telofase</button>
+          <button class="sim-tab" data-simphase="citocinesis" type="button">Citocinesis</button>
+        </div>
+        <div class="sim-layout">
+          <div class="sim-canvas" id="miniSimCanvas" data-phase="interfase">
+            <div class="sim-cell-outline"></div>
+            <div class="sim-nucleus"></div>
+            <div class="sim-dna dna-a"></div>
+            <div class="sim-dna dna-b"></div>
+            <div class="sim-dna dna-c"></div>
+            <div class="sim-spindle spindle-left"></div>
+            <div class="sim-spindle spindle-right"></div>
+            <div class="sim-cleavage"></div>
+            <div class="sim-label left-label">Polo celular</div>
+            <div class="sim-label right-label">Polo celular</div>
+          </div>
+          <div class="sim-info">
+            <h3 id="simTitle">Interfase</h3>
+            <p id="simDescription">La célula crece, realiza funciones normales y duplica su ADN durante la fase S. Aún no se observan cromosomas condensados.</p>
+            <div class="sim-keypoint" id="simKeypoint">Idea clave: antes de dividirse, la célula debe copiar su material genético.</div>
+            <button class="btn soft" id="simNarrate" type="button">🔊 Leer explicación</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Uso sugerido en clase</h2>
+      <p><b>Inicio:</b> pide a los estudiantes seleccionar Interfase y predecir qué debe ocurrir antes de que la célula se divida.</p>
+      <p><b>Desarrollo:</b> avanza fase por fase y solicita evidencia visual: alineación, separación, formación de núcleos y división del citoplasma.</p>
+      <p><b>Cierre:</b> pregunta CER: ¿por qué la metafase es crítica para obtener dos células hijas con información genética equivalente?</p>
+    </section>
+  </main>
+  <footer>🧬 Simulador de fases · Ciclo Celular · 2° Medio</footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
     <nav class="topbar">
       <div class="brand"><span class="logo">🧬</span><strong>Ciclo Celular</strong><small>2° Medio · Biología</small></div>
       <div class="navlinks">
-        <a href="#clase">Clase</a><a href="#modelo3d">3D/VR</a><a href="#quiz">Quiz</a><a href="#ticket">Ticket</a><a href="#panel">Panel docente</a><a href="#fuentes">Fuentes</a>
+        <a href="#clase">Clase</a><a href="#simulador">Simulador</a><a href="#modelo3d">3D/VR</a><a href="#quiz">Quiz</a><a href="#ticket">Ticket</a><a href="#panel">Panel docente</a><a href="#fuentes">Fuentes</a>
       </div>
     </nav>
     <section class="hero-grid">
@@ -62,9 +62,45 @@
       <article class="panel step"><span class="num">05</span><h2>Meiosis: reducción cromosómica y variabilidad</h2><p>La meiosis ocurre en células germinales para formar gametos. Incluye dos divisiones celulares y produce cuatro células haploides, distintas entre sí. Esto permite la reproducción sexual y aumenta la variabilidad genética.</p><div class="compare"><div><h3>Mitosis</h3><p>1 división · 2 células hijas · genéticamente idénticas · crecimiento y reparación.</p></div><div><h3>Meiosis</h3><p>2 divisiones · 4 células hijas · haploides y variables · gametos.</p></div></div></article>
     </section>
 
-    <section class="panel lab">
-      <div class="section-head"><div><h2>Laboratorio visual</h2><p>Modelo animado para explicar la dinámica de la célula en pantalla.</p></div><button class="btn soft" id="pulseBtn">Activar célula</button></div>
-      <div class="cell-stage" id="cellStage"><div class="cell"></div><div class="ring r1"></div><div class="ring r2"></div><div class="chrom c1"></div><div class="chrom c2"></div><div class="chrom c3"></div></div>
+    <section id="simulador" class="panel lab simulator-panel">
+      <div class="section-head">
+        <div>
+          <span class="badge">🧪 Laboratorio visual</span>
+          <h2>Simulador de fases del ciclo celular</h2>
+          <p>Selecciona una fase y observa qué ocurre dentro de la célula. Úsalo para explicar la dinámica del ADN, cromosomas, huso mitótico y separación celular.</p>
+        </div>
+        <a class="btn primary" href="simulador.html">Abrir simulador en pantalla completa</a>
+      </div>
+      <div class="phase-simulator" aria-label="Simulador interactivo de fases del ciclo celular">
+        <div class="sim-controls" role="tablist" aria-label="Fases del ciclo celular">
+          <button class="sim-tab active" data-simphase="interfase" type="button">Interfase</button>
+          <button class="sim-tab" data-simphase="profase" type="button">Profase</button>
+          <button class="sim-tab" data-simphase="metafase" type="button">Metafase</button>
+          <button class="sim-tab" data-simphase="anafase" type="button">Anafase</button>
+          <button class="sim-tab" data-simphase="telofase" type="button">Telofase</button>
+          <button class="sim-tab" data-simphase="citocinesis" type="button">Citocinesis</button>
+        </div>
+        <div class="sim-layout">
+          <div class="sim-canvas" id="miniSimCanvas" data-phase="interfase">
+            <div class="sim-cell-outline"></div>
+            <div class="sim-nucleus"></div>
+            <div class="sim-dna dna-a"></div>
+            <div class="sim-dna dna-b"></div>
+            <div class="sim-dna dna-c"></div>
+            <div class="sim-spindle spindle-left"></div>
+            <div class="sim-spindle spindle-right"></div>
+            <div class="sim-cleavage"></div>
+            <div class="sim-label left-label">Polo celular</div>
+            <div class="sim-label right-label">Polo celular</div>
+          </div>
+          <div class="sim-info">
+            <h3 id="simTitle">Interfase</h3>
+            <p id="simDescription">La célula crece, realiza funciones normales y duplica su ADN durante la fase S. Aún no se observan cromosomas condensados.</p>
+            <div class="sim-keypoint" id="simKeypoint">Idea clave: antes de dividirse, la célula debe copiar su material genético.</div>
+            <button class="btn soft" id="simNarrate" type="button">🔊 Leer explicación</button>
+          </div>
+        </div>
+      </div>
     </section>
 
 
