@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ciclo Celular 2° Medio | Clase interactiva</title>
+  <meta name="description" content="Sitio educativo interactivo sobre ciclo celular, mitosis, meiosis y citocinesis para 2° medio." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-theme="dark">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="hero">
+    <nav class="topbar">
+      <div class="brand"><span class="logo">🧬</span><strong>Ciclo Celular</strong><small>2° Medio · Biología</small></div>
+      <div class="navlinks">
+        <a href="#clase">Clase</a><a href="#quiz">Quiz</a><a href="#ticket">Ticket</a><a href="#panel">Panel docente</a><a href="#fuentes">Fuentes</a>
+      </div>
+    </nav>
+    <section class="hero-grid">
+      <div class="hero-copy">
+        <span class="badge">✨ Sitio listo para GitHub Pages</span>
+        <h1>Del ADN a dos células hijas: entiende el ciclo celular paso a paso</h1>
+        <p>Clase visual, interactiva y evaluable para estudiantes de 2° medio. Incluye registro, preguntas por proceso, quiz, ticket de salida, guardado local y envío automático de resultados por correo sin abrir aplicaciones externas.</p>
+        <div class="cta-row"><a class="btn primary" href="#registro">Comenzar clase</a><a class="btn soft" href="assets/infografia-ciclo-celular2.png" download>Descargar infografía</a><button class="btn ghost" id="readPage">🔊 Leer introducción</button></div>
+      </div>
+      <div class="hero-card">
+        <h2>Ruta de aprendizaje</h2>
+        <ol>
+          <li>Interfase: G1, S y G2.</li><li>Mitosis: profase, metafase, anafase y telofase.</li><li>Citocinesis: separación del citoplasma.</li><li>Meiosis: formación de gametos y variabilidad genética.</li>
+        </ol>
+      </div>
+    </section>
+  </header>
+
+  <aside class="tools" aria-label="Herramientas de accesibilidad">
+    <button id="themeBtn">🌗 Tema</button><button id="fontPlus">A+</button><button id="fontMinus">A-</button><button id="contrastBtn">⚫ Contraste</button><button id="speakBtn">🗣️ Leer</button>
+  </aside>
+
+  <main id="contenido" class="wrap">
+    <section id="registro" class="panel register">
+      <div><h2>1. Registro del estudiante</h2><p>Completa tus datos antes de responder. Estos datos se enviarán junto con los resultados.</p></div>
+      <form id="studentForm" class="grid-form">
+        <label>Nombre y apellido<input id="studentName" required placeholder="Ej.: Camila Muñoz"></label>
+        <label>Curso<input id="studentCourse" required value="2° Medio"></label>
+        <label>Grupo o número de lista<input id="studentGroup" placeholder="Ej.: Grupo 3"></label>
+        <label>Correo institucional<input id="studentEmail" type="email" required placeholder="Ej.: nombre.apellido@liceo.cl" title="Ingresa tu correo institucional"></label>
+        <button class="btn primary" type="submit">Guardar estudiante</button>
+      </form>
+      <p class="current" id="currentStudent">Sin estudiante registrado.</p>
+    </section>
+
+    <section class="panel visual">
+      <div class="section-head"><div><h2>Infografía resumen</h2><p>Usa esta imagen como organizador gráfico inicial de la clase.</p></div><a class="btn soft" href="assets/infografia-ciclo-celular2.png" download>⬇️ Descargar PNG</a></div>
+      <img class="infografia" src="assets/infografia-ciclo-celular2.png" alt="Infografía resumen del ciclo celular: interfase, mitosis, citocinesis y comparación con meiosis">
+    </section>
+
+    <section id="clase" class="sequence">
+      <article class="panel step"><span class="num">01</span><h2>¿Qué significa ciclo celular?</h2><p>El ciclo celular es una secuencia ordenada de eventos en la que una célula crece, copia su ADN y se divide. Su finalidad biológica es mantener tejidos, permitir crecimiento, reparar daños y asegurar que la información genética se distribuya correctamente.</p><div class="concept">Idea clave: antes de dividirse, la célula debe duplicar su información genética y revisar que el proceso sea correcto.</div></article>
+      <article class="panel step"><span class="num">02</span><h2>Interfase: preparación antes de dividirse</h2><p>Es la etapa más extensa. En G1 la célula crece y realiza sus funciones; en S duplica el ADN; en G2 aumenta componentes celulares, revisa errores y se prepara para la fase M.</p><div class="mini-grid"><div><b>G1</b><small>Crecimiento</small></div><div><b>S</b><small>Duplicación de ADN</small></div><div><b>G2</b><small>Revisión y preparación</small></div></div></article>
+      <article class="panel step"><span class="num">03</span><h2>Mitosis: división del núcleo</h2><p>La mitosis reparte el ADN duplicado en dos núcleos genéticamente equivalentes. Ocurre en células somáticas y es esencial para crecimiento, reemplazo celular y reparación de tejidos.</p><div class="timeline"><button data-phase="Profase: los cromosomas se condensan y comienza a formarse el huso mitótico.">Profase</button><button data-phase="Metafase: los cromosomas se alinean en el centro de la célula.">Metafase</button><button data-phase="Anafase: las cromátidas hermanas se separan hacia polos opuestos.">Anafase</button><button data-phase="Telofase: se reorganizan dos núcleos nuevos.">Telofase</button></div><p class="phase-output" id="phaseOutput">Selecciona una fase para ver la explicación.</p></article>
+      <article class="panel step"><span class="num">04</span><h2>Citocinesis: división del citoplasma</h2><p>Después de la división nuclear, la célula separa su citoplasma. En células animales se forma un surco de segmentación; en células vegetales se forma una placa celular. El resultado esperado son dos células hijas.</p><div class="concept">Diferencia clave: mitosis divide el núcleo; citocinesis separa físicamente la célula.</div></article>
+      <article class="panel step"><span class="num">05</span><h2>Meiosis: reducción cromosómica y variabilidad</h2><p>La meiosis ocurre en células germinales para formar gametos. Incluye dos divisiones celulares y produce cuatro células haploides, distintas entre sí. Esto permite la reproducción sexual y aumenta la variabilidad genética.</p><div class="compare"><div><h3>Mitosis</h3><p>1 división · 2 células hijas · genéticamente idénticas · crecimiento y reparación.</p></div><div><h3>Meiosis</h3><p>2 divisiones · 4 células hijas · haploides y variables · gametos.</p></div></div></article>
+    </section>
+
+    <section class="panel lab">
+      <div class="section-head"><div><h2>Laboratorio visual</h2><p>Modelo animado para explicar la dinámica de la célula en pantalla.</p></div><button class="btn soft" id="pulseBtn">Activar célula</button></div>
+      <div class="cell-stage" id="cellStage"><div class="cell"></div><div class="ring r1"></div><div class="ring r2"></div><div class="chrom c1"></div><div class="chrom c2"></div><div class="chrom c3"></div></div>
+    </section>
+
+    <section id="quiz" class="panel quiz">
+      <h2>2. Preguntas por proceso + quiz</h2><p>Responde todas las preguntas. El quiz entrega retroalimentación inmediata, identifica procesos débiles y genera un reporte pedagógico que se envía solo al correo de la profesora.</p>
+      <form id="quizForm"></form>
+      <div class="actions"><button class="btn primary" id="gradeBtn">Revisar respuestas</button><button class="btn ghost" id="resetBtn">Limpiar respuestas</button></div>
+      <div class="scorebox" id="scoreBox">Puntaje: 0/10</div><div class="send-status" id="sendStatus" aria-live="polite"></div>
+      <div class="reportbox locked" id="reportBox">
+        🔒 Reporte pedagógico protegido. El resultado se envía automáticamente al correo de la profesora, pero el reporte detallado solo se muestra cuando la docente inicia sesión.
+        <div class="teacher-login-inline">
+          <input id="teacherEmailInline" type="email" placeholder="Correo docente">
+          <input id="teacherPassInline" type="password" placeholder="Contraseña docente">
+          <button class="btn soft" id="teacherLoginInline" type="button">Abrir reporte docente</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="ticket" class="panel ticket">
+      <h2>3. Ticket de salida</h2>
+      <label>1. Explica con tus palabras una diferencia entre mitosis y meiosis, y menciona por qué es importante para los seres vivos.<textarea id="ticketText" rows="4" placeholder="Escribe tu respuesta aquí..."></textarea></label>
+      <label>2. ¿Qué proceso te resultó más difícil: interfase, mitosis, citocinesis o meiosis? Justifica brevemente.<textarea id="ticketDificultad" rows="3" placeholder="Ej.: Me costó meiosis porque..."></textarea></label>
+      <label>3. Escribe una pregunta que aún tengas sobre el ciclo celular.<textarea id="ticketPregunta" rows="3" placeholder="Ej.: ¿Por qué...?"></textarea></label>
+      <label>Autoevaluación: ¿qué tan seguro/a te sientes?<select id="confidence"><option value="Alta">Alta</option><option value="Media">Media</option><option value="Baja">Baja</option></select></label>
+      <div class="actions final-actions">
+        <button class="btn primary btn-final" id="saveBtn" type="button">✅ Finalizar actividades y enviar reporte a la profesora</button>
+      </div>
+      <p class="note">Al finalizar, el reporte pedagógico individual se enviará automáticamente solo al correo docente configurado.</p>
+    </section>
+
+    <section id="panel" class="panel teacher teacher-locked">
+      <div class="section-head"><div><h2>Panel docente local</h2><p>Resultados guardados en el navegador. Acceso protegido para la profesora.</p></div><div><button class="btn soft" id="exportCsv">Exportar CSV</button><button class="btn danger" id="clearData">Borrar datos</button><button class="btn ghost" id="teacherLogout" type="button">Cerrar acceso docente</button></div></div>
+      <div class="teacher-gate" id="teacherGate">
+        <h3>🔐 Acceso docente</h3>
+        <p>Ingresa el correo de la profesora y la contraseña configurada para abrir el reporte pedagógico y el panel local.</p>
+        <div class="teacher-login-inline">
+          <input id="teacherEmailPanel" type="email" placeholder="belen.acpe@gmail.com">
+          <input id="teacherPassPanel" type="password" placeholder="Contraseña">
+          <button class="btn primary" id="teacherLoginPanel" type="button">Ingresar como docente</button>
+        </div>
+        <p class="note">El envío de resultados al correo de Belén se mantiene activo para estudiantes aunque el reporte esté bloqueado.</p>
+      </div>
+      <div id="teacherContent">
+      <div class="stats"><div><b id="statCount">0</b><span>envíos</span></div><div><b id="statAvg">0%</b><span>promedio</span></div><div><b id="statBest">0/10</b><span>mejor puntaje</span></div><div><b id="statWeak">—</b><span>proceso a reforzar</span></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Nombre</th><th>Curso</th><th>Correo institucional</th><th>Grupo</th><th>Puntaje</th><th>%</th><th>Logro</th><th>Refuerzo</th><th>Correo</th></tr></thead><tbody id="resultsBody"><tr><td colspan="10">Sin registros todavía.</td></tr></tbody></table></div>
+      <p class="note">📧 En GitHub Pages el envío automático usa FormSubmit vía <code>fetch()</code> y envía los resultados solo al correo docente configurado. La primera vez puede requerir confirmar el correo destinatario desde la bandeja de entrada de Belén.</p>
+      </div>
+    </section>
+
+    <section id="fuentes" class="panel sources">
+      <h2>Fuentes educativas usadas para complementar el material</h2>
+      <ul><li>National Human Genome Research Institute: Cell Cycle, Mitosis.</li><li>MedlinePlus Genetics: How do cells divide?</li><li>Khan Academy en Español: fases del ciclo celular, mitosis y meiosis.</li><li>Currículum Nacional / recursos educativos de biología: comparación mitosis y meiosis.</li></ul>
+    </section>
+  </main>
+  <footer>🧬 Clase interactiva Ciclo Celular · 2° Medio · Lista para GitHub Pages</footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
