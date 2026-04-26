@@ -30,11 +30,7 @@ Importante: FormSubmit normalmente solicita una confirmación la primera vez que
 
 Nota técnica: al ser un sitio estático para GitHub Pages, esta protección es de interfaz/local. Para seguridad real con contraseñas ocultas se recomienda migrar el panel docente a Supabase Auth, Cloudflare Access o un Worker con autenticación.
 
-## Versión final solicitada
 
-Cambios aplicados:
-- El reporte pedagógico automático se genera por cada alumno al terminar las actividades.
-- El botón final está en el Ticket de salida: **Finalizar actividades y enviar reporte a la profesora**.
-- El envío se realiza solo a `belen.acpe@gmail.com` mediante FormSubmit AJAX.
-- El reporte no se envía al estudiante ni abre aplicaciones externas.
-- Se reforzó el diseño responsive para computador, tablet y celular.
+## Material complementario 3D / VR
+
+Se agregó `3d.html` y una sección `#modelo3d` en `index.html` con modelos educativos embebidos desde Sketchfab. Los modelos se cargan por iframe, por lo que el sitio puede subirse a GitHub Pages sin almacenar archivos pesados `.glb` localmente. El reporte pedagógico automático y el envío exclusivo al correo de la profesora se mantienen sin cambios.

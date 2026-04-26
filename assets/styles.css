@@ -12,40 +12,24 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 .teacher-locked table,.teacher-locked .stats{filter:blur(4px);pointer-events:none;user-select:none;opacity:.45}
 @media(max-width:850px){.teacher-login-inline{display:grid}.teacher-login-inline input{min-width:0;width:100%}}
 
-/* Ajustes finales solicitados: envío al terminar + responsive PC/tablet/celular */
-.final-actions{margin-top:1rem}
-.btn-final{font-size:1.05rem;padding:1rem 1.25rem;box-shadow:0 12px 35px rgba(49,230,208,.22)}
-.send-status{margin:.8rem 0 0;padding:.85rem 1rem;border-radius:1rem;border:1px solid var(--line);background:rgba(49,230,208,.10);font-weight:850;color:var(--text)}
-button,input,select,textarea{font:inherit}
-@media(max-width:1024px){
-  .hero-grid{grid-template-columns:1fr}
-  .grid-form{grid-template-columns:repeat(2,1fr)}
-  .sequence{grid-template-columns:1fr}
-  .step:first-child,.step:last-child{grid-column:auto}
-}
-@media(max-width:720px){
-  .hero h1{font-size:clamp(2rem,10vw,3rem)}
-  .topbar{border-radius:1rem}
-  .brand{align-items:flex-start}
-  .brand small{display:block}
-  .navlinks{width:100%;display:grid;grid-template-columns:repeat(2,1fr)}
-  .navlinks a{text-align:center}
-  .grid-form,.mini-grid,.compare,.stats{grid-template-columns:1fr}
-  .actions,.cta-row,.section-head{display:grid;grid-template-columns:1fr}
-  .btn,.navlinks a,.tools button{width:100%;text-align:center}
-  .tools{left:0;right:0;top:0;border-radius:0;grid-template-columns:repeat(5,minmax(84px,1fr));z-index:20}
-  .tools button{white-space:nowrap}
-  .wrap{width:94vw}
-  .panel,.hero-copy,.hero-card{border-radius:1.25rem;padding:1rem}
-  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  table{min-width:900px}
-  input,select,textarea{font-size:16px}
-}
-@media(max-width:430px){
-  .navlinks{grid-template-columns:1fr}
-  .hero{padding:.75rem}
-  .tools{overflow-x:auto}
-  .cell{width:112px;height:112px}
-  .r1{width:190px;height:190px}
-  .r2{width:250px;height:150px}
-}
+
+/* === Material 3D / VR complementario === */
+.modelo3d-section{overflow:hidden;}
+.viewer-card{position:relative;width:100%;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:rgba(15,23,42,.72);box-shadow:0 28px 80px rgba(0,0,0,.28);}
+.viewer-card::before{content:"";display:block;padding-top:62%;}
+.viewer-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.model-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px;}
+.model-grid article{padding:18px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);}
+.model-grid h3{margin:0 0 8px;}
+.model-grid p{margin:0;color:var(--muted);}
+.viewer-page .viewer-hero{padding:32px 0 8px;}
+.viewer-page .viewer-shell{width:min(1180px,92vw);margin:0 auto 32px;}
+.viewer-page .viewer-main{display:grid;grid-template-columns:1.6fr .9fr;gap:20px;align-items:start;}
+.viewer-page .viewer-panel{padding:22px;border-radius:24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);}
+.viewer-page .embed-large{min-height:560px;}
+.viewer-page .embed-large::before{padding-top:64%;}
+.viewer-list{display:grid;gap:12px;}
+.viewer-list a{display:block;padding:14px 16px;border-radius:16px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.24);color:inherit;text-decoration:none;}
+.viewer-list a:hover{transform:translateY(-1px);}
+@media (max-width:900px){.model-grid{grid-template-columns:1fr;}.viewer-page .viewer-main{grid-template-columns:1fr;}.viewer-page .embed-large{min-height:420px;}}
+@media (max-width:560px){.viewer-card::before{padding-top:86%;}.viewer-page .embed-large{min-height:360px;}.section-head{gap:14px;}.section-head .btn{width:100%;justify-content:center;}}

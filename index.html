@@ -13,7 +13,7 @@
     <nav class="topbar">
       <div class="brand"><span class="logo">🧬</span><strong>Ciclo Celular</strong><small>2° Medio · Biología</small></div>
       <div class="navlinks">
-        <a href="#clase">Clase</a><a href="#quiz">Quiz</a><a href="#ticket">Ticket</a><a href="#panel">Panel docente</a><a href="#fuentes">Fuentes</a>
+        <a href="#clase">Clase</a><a href="#modelo3d">3D/VR</a><a href="#quiz">Quiz</a><a href="#ticket">Ticket</a><a href="#panel">Panel docente</a><a href="#fuentes">Fuentes</a>
       </div>
     </nav>
     <section class="hero-grid">
@@ -67,11 +67,32 @@
       <div class="cell-stage" id="cellStage"><div class="cell"></div><div class="ring r1"></div><div class="ring r2"></div><div class="chrom c1"></div><div class="chrom c2"></div><div class="chrom c3"></div></div>
     </section>
 
+
+
+    <section id="modelo3d" class="panel modelo3d-section">
+      <div class="section-head">
+        <div>
+          <span class="badge">🥽 Material complementario inmersivo</span>
+          <h2>Exploración 3D / VR del ciclo celular</h2>
+          <p>Modelo interactivo de Sketchfab para rotar, acercar, ampliar en pantalla completa y usar como apoyo visual durante la explicación de mitosis, meiosis y checkpoints del ciclo celular.</p>
+        </div>
+        <a class="btn primary" href="3d.html">Abrir visor 3D completo</a>
+      </div>
+      <div class="viewer-card">
+        <iframe title="Cell Cycle phases and check points - 3D model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/35f5205532044fc880d88defee2bbc68/embed"></iframe>
+      </div>
+      <div class="model-grid">
+        <article><h3>🧬 Ciclo celular completo</h3><p>Secuencia general: crecimiento celular, duplicación del ADN, controles y división.</p></article>
+        <article><h3>🔬 Mitosis paso a paso</h3><p>Refuerzo visual para profase, metafase, anafase y telofase.</p></article>
+        <article><h3>🧪 Actividad rápida</h3><p>Pregunta guía: ¿qué estructura permite asegurar que cada célula hija reciba información genética?</p></article>
+      </div>
+    </section>
+
     <section id="quiz" class="panel quiz">
       <h2>2. Preguntas por proceso + quiz</h2><p>Responde todas las preguntas. El quiz entrega retroalimentación inmediata, identifica procesos débiles y genera un reporte pedagógico que se envía solo al correo de la profesora.</p>
       <form id="quizForm"></form>
-      <div class="actions"><button class="btn primary" id="gradeBtn">Revisar respuestas</button><button class="btn ghost" id="resetBtn">Limpiar respuestas</button></div>
-      <div class="scorebox" id="scoreBox">Puntaje: 0/10</div><div class="send-status" id="sendStatus" aria-live="polite"></div>
+      <div class="actions"><button class="btn primary" id="gradeBtn">Revisar respuestas</button><button class="btn soft" id="saveBtn">Guardar y enviar correo</button><button class="btn ghost" id="resetBtn">Limpiar</button></div>
+      <div class="scorebox" id="scoreBox">Puntaje: 0/10</div>
       <div class="reportbox locked" id="reportBox">
         🔒 Reporte pedagógico protegido. El resultado se envía automáticamente al correo de la profesora, pero el reporte detallado solo se muestra cuando la docente inicia sesión.
         <div class="teacher-login-inline">
@@ -88,10 +109,6 @@
       <label>2. ¿Qué proceso te resultó más difícil: interfase, mitosis, citocinesis o meiosis? Justifica brevemente.<textarea id="ticketDificultad" rows="3" placeholder="Ej.: Me costó meiosis porque..."></textarea></label>
       <label>3. Escribe una pregunta que aún tengas sobre el ciclo celular.<textarea id="ticketPregunta" rows="3" placeholder="Ej.: ¿Por qué...?"></textarea></label>
       <label>Autoevaluación: ¿qué tan seguro/a te sientes?<select id="confidence"><option value="Alta">Alta</option><option value="Media">Media</option><option value="Baja">Baja</option></select></label>
-      <div class="actions final-actions">
-        <button class="btn primary btn-final" id="saveBtn" type="button">✅ Finalizar actividades y enviar reporte a la profesora</button>
-      </div>
-      <p class="note">Al finalizar, el reporte pedagógico individual se enviará automáticamente solo al correo docente configurado.</p>
     </section>
 
     <section id="panel" class="panel teacher teacher-locked">
@@ -115,7 +132,7 @@
 
     <section id="fuentes" class="panel sources">
       <h2>Fuentes educativas usadas para complementar el material</h2>
-      <ul><li>National Human Genome Research Institute: Cell Cycle, Mitosis.</li><li>MedlinePlus Genetics: How do cells divide?</li><li>Khan Academy en Español: fases del ciclo celular, mitosis y meiosis.</li><li>Currículum Nacional / recursos educativos de biología: comparación mitosis y meiosis.</li></ul>
+      <ul><li>National Human Genome Research Institute: Cell Cycle, Mitosis.</li><li>MedlinePlus Genetics: How do cells divide?</li><li>Khan Academy en Español: fases del ciclo celular, mitosis y meiosis.</li><li>Sketchfab: modelos 3D educativos de ciclo celular, mitosis y meiosis usados como material complementario visual.</li><li>Currículum Nacional / recursos educativos de biología: comparación mitosis y meiosis.</li></ul>
     </section>
   </main>
   <footer>🧬 Clase interactiva Ciclo Celular · 2° Medio · Lista para GitHub Pages</footer>

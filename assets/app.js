@@ -152,15 +152,7 @@ function renderReport(report) {
     <div class='bars'>${report.detalles.map(d => `<div><span>${d.proceso}</span><progress value='${d.pct}' max='100'></progress><b>${d.pct}%</b></div>`).join('')}</div>`;
 }
 
-function allQuizAnswered() {
-  return quiz.every((q, i) => Boolean($(`input[name=q${i}]:checked`)));
-}
-
 function grade() {
-  if (!allQuizAnswered()) {
-    alert('Responde todas las preguntas del quiz antes de revisar o enviar.');
-    return null;
-  }
   let score = 0;
   quiz.forEach((q, i) => {
     const v = $(`input[name=q${i}]:checked`);
@@ -218,11 +210,7 @@ async function sendEmail(record) {
 async function saveAndSend() {
   if (!state.name) { alert('Primero registra el nombre del estudiante.'); return; }
   if (!state.email || !state.email.includes('@')) { alert('Ingresa un correo institucional válido.'); return; }
-  if (!allQuizAnswered()) { alert('Responde todas las preguntas del quiz antes de finalizar.'); return; }
-  if (!state.graded) {
-    const gradedScore = grade();
-    if (gradedScore === null) return;
-  }
+  if (!state.graded) grade();
   const ticket = $('#ticketText').value.trim();
   const dificultad = $('#ticketDificultad').value.trim();
   const pregunta = $('#ticketPregunta').value.trim();
@@ -251,16 +239,12 @@ async function saveAndSend() {
   const list = records();
   list.push(record);
   setRecords(list);
-  $('#saveBtn').textContent = 'Enviando reporte a la profesora...';
-  if ($('#sendStatus')) $('#sendStatus').innerHTML = '⏳ Generando y enviando reporte pedagógico individual a la profesora...';
+  $('#saveBtn').textContent = 'Enviando al profesor...';
   const status = await sendEmail(record);
   record.correo = status;
   setRecords(list);
-  $('#saveBtn').textContent = '✅ Finalizar actividades y enviar reporte a la profesora';
-  if ($('#sendStatus')) $('#sendStatus').innerHTML = status === 'enviado al profesor'
-    ? '✅ Reporte enviado correctamente solo al correo de la profesora.'
-    : '⚠️ Reporte generado. Estado del correo: ' + status + '. Revisa que FormSubmit esté confirmado por la profesora.';
-  alert('Actividades finalizadas. Estado del correo: ' + status + '. El envío está configurado solo para el correo de la profesora.');
+  $('#saveBtn').textContent = 'Guardar y enviar correo';
+  alert('Resultado guardado. Estado del correo: ' + status + '. El envío está configurado solo para el correo de la profesora.');
 }
 
 function refreshPanel() {
@@ -307,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   $('#gradeBtn').onclick = grade;
   $('#saveBtn').onclick = saveAndSend;
-  $('#resetBtn').onclick = () => { document.getElementById('quizForm').reset(); $$('.feedback').forEach(f => f.textContent = ''); state.graded = false; state.score = 0; state.report = null; $('#scoreBox').textContent = 'Puntaje: 0/10'; if ($('#sendStatus')) $('#sendStatus').textContent = ''; $('#reportBox').classList.add('locked'); $('#reportBox').innerHTML = teacherLockHtml(); attachInlineLogin(); };
+  $('#resetBtn').onclick = () => { document.getElementById('quizForm').reset(); $$('.feedback').forEach(f => f.textContent = ''); state.graded = false; state.score = 0; state.report = null; $('#scoreBox').textContent = 'Puntaje: 0/10'; $('#reportBox').classList.add('locked'); $('#reportBox').innerHTML = teacherLockHtml(); attachInlineLogin(); };
   $('#exportCsv').onclick = exportCsv;
   $('#clearData').onclick = () => { if (!isTeacherAuthenticated()) { alert('Solo la profesora puede borrar datos.'); return; } if (confirm('¿Borrar todos los resultados locales?')) setRecords([]); };
   $('#themeBtn').onclick = () => document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';

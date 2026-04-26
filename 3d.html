@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visor 3D / VR · Ciclo Celular</title>
+  <meta name="description" content="Material complementario 3D y VR sobre ciclo celular, mitosis y meiosis para 2° medio." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-theme="dark" class="viewer-page">
+  <header class="hero viewer-hero">
+    <nav class="topbar">
+      <div class="brand"><span class="logo">🧬</span><strong>Visor 3D / VR</strong><small>Ciclo celular · 2° Medio</small></div>
+      <div class="navlinks"><a href="index.html">Volver a la clase</a><a href="index.html#quiz">Quiz</a><a href="index.html#ticket">Ticket</a></div>
+    </nav>
+  </header>
+  <main class="viewer-shell">
+    <section class="viewer-main">
+      <div class="viewer-card embed-large">
+        <iframe id="viewerFrame" title="Cell Cycle phases and check points - 3D model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/35f5205532044fc880d88defee2bbc68/embed"></iframe>
+      </div>
+      <aside class="viewer-panel">
+        <span class="badge">🥽 Exploración inmersiva</span>
+        <h1>Modelos 3D complementarios</h1>
+        <p>Usa el visor para rotar, acercar, revisar detalles y proyectar el modelo en clase. En dispositivos compatibles, Sketchfab permite experiencia inmersiva/fullscreen.</p>
+        <div class="viewer-list">
+          <a href="#" data-src="https://sketchfab.com/models/35f5205532044fc880d88defee2bbc68/embed" data-title="Cell Cycle phases and check points - 3D model">🧬 Ciclo celular completo y checkpoints</a>
+          <a href="#" data-src="https://sketchfab.com/models/821f09436c4f4ce487cdf3b2a40364b3/embed" data-title="Mitosis stages. cell division - 3D model">🔬 Etapas de mitosis</a>
+          <a href="#" data-src="https://sketchfab.com/models/df93411c475c4e4eb450f71437b5ad0d/embed" data-title="Mitosis 3D animation - 3D model">🎞️ Animación 3D de mitosis</a>
+          <a href="#" data-src="https://sketchfab.com/models/7141c0214c2e4134b8822ae3e5f69849/embed" data-title="Meiosis II Prophase II - 3D model">🧪 Meiosis II: profase II</a>
+        </div>
+        <div class="concept" style="margin-top:16px;">Actividad sugerida: elige un modelo, identifica la fase representada y explica qué ocurre con el ADN usando vocabulario científico.</div>
+      </aside>
+    </section>
+  </main>
+  <footer>🧬 Material 3D complementario · Sketchfab · Ciclo Celular 2° Medio</footer>
+  <script>document.querySelectorAll('[data-src]').forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();const frame=document.getElementById('viewerFrame');frame.src=link.dataset.src;frame.title=link.dataset.title;document.querySelectorAll('[data-src]').forEach(a=>a.classList.remove('active'));link.classList.add('active');});});</script>
+</body>
+</html>
